@@ -55,20 +55,20 @@ class Mapa extends Component {
   }  
 
 
-   submitForm(e){
-    e.preventDefault();
-    const {logged} = this.props;
-    axios.post('http://localhost:8080/profile/dirfav',{
-      cel: logged.user.usuario.num_cel_u,
-      nombre: this.state.name,
-      coords: `(${this.state.lat},${this.state.lng})`
-    }).then(res => {
-      alert("Dirección guardada con éxito")
-    }).catch(err => {
-      let message = "Se ha producido el siguiente error: "+err.response.data;
-      alert(message);
-    });
-  }
+   submitForm(e) {
+        e.preventDefault();
+        const {logged} = this.props;
+        axios.post('http://localhost:8080/profile/dirfav', {
+            cel: logged.user.usuario.num_cel_u,
+            nombre: this.state.name,
+            coords: `(${this.state.lng},${this.state.lat})`
+        }).then(res => {
+            alert("Dirección guardada con éxito")
+        }).catch(err => {
+            let message = "Se ha producido el siguiente error: " + err.response.data;
+            alert(message);
+        });
+    }
 
 
   inputChange(text) {
